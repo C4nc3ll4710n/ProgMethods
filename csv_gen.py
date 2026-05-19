@@ -30,11 +30,8 @@ def write_csv(n, path):
             writer.writerow([name, faculty, group, gpa])
 
 def main():
-    sizes = [100, 500, 1000, 2000, 5000, 10000, 20000, 50000, 75000, 100000]
-    for n in sizes:
-        path = f"students_{n}.csv"
-        write_csv(n, path)
-        print(f"  written {path}: {n} rows")
+    path = f"students.csv"
+    write_csv(100000, path)
 
 if __name__ == "__main__":
     main()

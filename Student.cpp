@@ -15,10 +15,19 @@ Student::Student(const Student& other)
     group   = other.group;
     gpa     = other.gpa;
 }
+
+Student::Student(char* csv_st)
+{
+    //Imixerob Obaryzute,Reverse,227,5.21
+    name    = cp_str(strtok(csv_st, ","));
+    faculty = cp_str(strtok(NULL, ","));
+    group   = atoi(strtok(NULL, ","));
+    gpa     = atof(strtok(NULL, ","));
+}
     
 Student& Student::operator=(const Student& other)
 {
-    //if (this == &other) return *this;
+    if (this == &other) return *this;
 
     delete[] name;
     delete[] faculty;
@@ -28,6 +37,7 @@ Student& Student::operator=(const Student& other)
     gpa     = other.gpa;
     return *this;
 }
+
     
 Student::~Student() {
     delete[] name;

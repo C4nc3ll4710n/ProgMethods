@@ -1,6 +1,8 @@
 #ifndef STUDENT_H
 #define STUDENT_H
+
 #include <string>
+#include <cstdlib>
 
 #include "hlpr.h"
 
@@ -12,6 +14,7 @@ struct Student {
 
     Student();
     Student(const Student& other);
+    Student(char* csv_st);
     Student& operator=(const Student& other);
     ~Student();
 
