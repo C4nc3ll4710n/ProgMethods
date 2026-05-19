@@ -2,11 +2,18 @@
 #define STUDENT_H
 #include <string>
 
+#include "hlpr.h"
+
 struct Student {
-    std::string name;
-    std::string faculty;
-    int group = 0;
-    double gpa = 0.0;
+    char*  name;
+    char*  faculty;
+    int    group;
+    double gpa;
+
+    Student();
+    Student(const Student& other);
+    Student& operator=(const Student& other);
+    ~Student();
 
     bool operator<(const Student& other) const;
     bool operator>(const Student& other) const;
