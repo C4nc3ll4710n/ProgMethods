@@ -1,7 +1,4 @@
-
-
 #include "hlpr.h"
-
 
 char* cp_str(const char *s)
 {

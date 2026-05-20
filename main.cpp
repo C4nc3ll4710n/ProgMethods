@@ -74,7 +74,6 @@ int main() {
             (long long)cshk_time.count(),
             (long long)sort_time.count());
         fflush(tf);
-        
 
         if (i == 9) {
             FILE* out = fopen("students_sorted.csv", "w");
