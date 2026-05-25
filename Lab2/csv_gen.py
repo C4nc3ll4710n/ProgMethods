@@ -9,7 +9,7 @@ sogl = "bcdfghjklmnpqrstvwxz"
 fac = ["Cybersec", "Reverse", "Forensics", "Pentest", "Pwn", "Teapotting"]
 
 def random_word():
-    length = random.randint(3, 10)
+    length = random.randint(3, 3)
     letters = []
     for i in range(length):
         if i % 2 == 0:
