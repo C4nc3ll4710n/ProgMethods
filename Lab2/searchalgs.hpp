@@ -13,11 +13,62 @@ std::vector<int> lin_srch(const Student* a, int n, const char* key)
     return mtchs;
 }
 
+void bt_srch_hlpr(const Bin_Node* root, const char* key, std::vector<int> &v)
+{
+    if (root == nullptr)
+        return;
+    int cmp = strcmp(root->student->name, key);
+    if (cmp == 0)
+    {
+        v.push_back(root->ind);
+        bt_srch_hlpr(root->right, key, v);
+    }
+    else if (cmp < 0)
+        bt_srch_hlpr(root->right, key, v);
+    else 
+        bt_srch_hlpr(root->left, key, v);
 
-//std::vector<int> bt_srch(const BT_Node* root, const char* key);
+}
+
+std::vector<int> bt_srch(const Bin_Node* root, const char* key)
+{
+    std::vector<int> v;
+    
+    bt_srch_hlpr(root, key, v);
+
+    return v;
+}
 
 
-//std::vector<int> rb_srch(const RB_Node* a, int n, const char* key);
+void rb_srch_hlpr(const RB_Node* root, const char* key, std::vector<int> &v)
+{
+    if (root == nullptr)
+        return;
+    int cmp = strcmp(root->student->name, key);
+    if (cmp == 0)
+    {
+        v.push_back(root->ind);
+        rb_srch_hlpr(root->left, key, v);
+        rb_srch_hlpr(root->right, key, v);
+    }
+    else if (cmp < 0)
+        rb_srch_hlpr(root->right, key, v);
+    else 
+        rb_srch_hlpr(root->left, key, v);
+
+}
+
+std::vector<int> rb_srch(const RB_Node* root, const char* key)
+{
+    std::vector<int> v;
+    
+    rb_srch_hlpr(root, key, v);
+
+    return v;
+
+}
+
+
 
 
 std::vector<int> hsh_tb_srch(const HashTable* t, const char* key)
