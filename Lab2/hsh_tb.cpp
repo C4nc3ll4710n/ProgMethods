@@ -39,7 +39,7 @@ HashTable* hsh_tb_bld(const Student* a, int n)
     t->colls = 0;
 
     for (int i = 0; i < t->size; i++)
-    t->cells[i] = nullptr;
+        t->cells[i] = nullptr;
     
     for (int i= 0; i < n; i++)
     {
@@ -51,6 +51,7 @@ HashTable* hsh_tb_bld(const Student* a, int n)
             if (strcmp(comp->student->name, a[i].name) != 0)
             {
                 t->colls++;
+                //printf("сколлизировли %u: '%s' <- '%s'\n", h, comp->student->name, a[i].name);
                 break;
             }
             comp = comp->nxt;
