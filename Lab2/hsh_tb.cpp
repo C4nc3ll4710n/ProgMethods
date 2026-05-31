@@ -46,16 +46,27 @@ HashTable* hsh_tb_bld(const Student* a, int n)
         unsigned int h = hsh_fn(a[i].name) % t->size;
 
         HSH_TB_Node* comp = t->cells[h];
+
+        bool dup = false;
+        bool empt = false;
+        if (comp == nullptr)
+            empt == true;
         while(comp != nullptr)
         {
-            if (strcmp(comp->student->name, a[i].name) != 0)
+            if (strcmp(comp->student->name, a[i].name) == 0)
             {
-                t->colls++;
-                //printf("сколлизировли %u: '%s' <- '%s'\n", h, comp->student->name, a[i].name);
+                dup = true;
+                
                 break;
             }
             comp = comp->nxt;
 
+        }
+
+        if (!empt && !dup)
+        {
+            t->colls++;
+            //printf("коллизия %u: '%s'\n", a[i].name);
         }
 
         HSH_TB_Node* tmp = new HSH_TB_Node;
