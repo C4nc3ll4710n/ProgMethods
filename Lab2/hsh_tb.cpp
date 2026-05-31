@@ -50,7 +50,7 @@ HashTable* hsh_tb_bld(const Student* a, int n)
         bool dup = false;
         bool empt = false;
         if (comp == nullptr)
-            empt == true;
+            empt = true;
         while(comp != nullptr)
         {
             if (strcmp(comp->student->name, a[i].name) == 0)
